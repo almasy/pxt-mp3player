@@ -35,7 +35,7 @@ namespace mp3player {
         type2 = 1
     }
 
-    //% blockId="MP3_setSerial" block="set DFPlayer mini RX to %pinRX|TX to %pinTX"
+    //% blockId="MP3_setSerial" block="set MP3Player model RX to %pinRX|TX to %pinTX"
     //% weight=100 blockGap=20
     export function MP3_setSerial(pinRX: SerialPin, pinTX: SerialPin): void {
         serial.redirect(
