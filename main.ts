@@ -1,8 +1,9 @@
+/**
+ * Functions to MP3 by ELECFREAKS Co.,Ltd.
+ */
 //% weight=0 color=#009900 icon="\uf001" block="MP3"
-namespace mp3player {
+namespace mp3Player {
 
-    serial.onDataReceived("E", () => {
-    })
     let Start_Byte = 0x7E
     let Version_Byte = 0xFF
     let Command_Length = 0x06
@@ -14,51 +15,51 @@ namespace mp3player {
     let highByte = 0x00
     let lowByte = 0x00
     let dataArr: number[] = [Start_Byte, Version_Byte, Command_Length, CMD, Acknowledge, para1, para2, highByte, lowByte, End_Byte]
-
+	/*
+	* Play status selection button list
+	*/
     export enum playType {
         //% block="Play"
-        type1 = 0x0D,
+        Play = 0x0D,
         //% block="Stop"
-        type2 = 0x16,
+        Stop = 0x16,
         //% block="PlayNext"
-        type3 = 0x01,
+        PlayNext = 0x01,
         //% block="PlayPrevious"
-        type4 = 0x02,
+        PlayPrevious = 0x02,
         //% block="Pause"
-        type5 = 0x0E
+        Pause = 0x0E
     }
-
-    export enum repeat {
+    /*
+	* Loop button list
+	*/
+    export enum repeatList {
         //% block="no"
-        type1 = 0,
+        No = 0,
         //% block="yes"
-        type2 = 1
+        Yes = 1
     }
-
-    //% blockId="MP3_setSerial" block="set MP3Player model RX to %pinRX|TX to %pinTX"
-    //% weight=100 blockGap=20
-    export function MP3_setSerial(pinRX: SerialPin, pinTX: SerialPin): void {
+    /**
+     * TODO: Initializing the MP3 connection port as a serial port
+     * @param pinRX Serial port TX pin of micro:bit , eg: SerialPin.P1
+     */
+    //% blockId="MP3_setSerial" block="set MP3Player model connect to %pinRX"
+    //% weight=100 
+    export function MP3SetSerial(pinRX: SerialPin): void {
         serial.redirect(
             pinRX,
-            pinTX,
+            SerialPin.USB_TX,
             BaudRate.BaudRate9600
         )
         basic.pause(100)
     }
-
-    function checkSum(): void {
-        let total = 0;
-        for (let i = 1; i < 7; i++) {
-            total += dataArr[i]
-        }
-        total = 65536 - total
-        lowByte = total & 0xFF;
-        highByte = total >> 8;
-        dataArr[7] = highByte
-        dataArr[8] = lowByte
-    }
-    //% blockId="execute" block="execute procedure:%myType"
-    //% weight=90 blockExternalInputs=true blockGap=20
+    /**
+     * TODO: Perform playback or other
+     * @param myType Left wheel speed , eg: playType.Play
+     */
+    //% blockId="execute" 
+    //% block="execute procedure:%myType"
+    //% weight=90 blockExternalInputs=true
     export function execute(myType: playType): void {
         CMD = myType
         para1 = 0x00
@@ -69,10 +70,15 @@ namespace mp3player {
         checkSum()
         sendData()
     }
-
-    //% blockId="setTracking" block="play the mp3 on the track:%tracking|repeat:%myAns"
-    //% weight=85 blockGap=20 tracking.min=1 tracking.max=255
-    export function setTracking(tracking: number, myAns: repeat): void {
+    /**
+     * TODO: Specify a song to play
+     * @param tracking Specify a song , eg: 0
+     * @param myAns repeat , eg: repeatList.Yes
+     */
+    //% blockId="setTracking" 
+    //% block="play the mp3 on the track:%tracking|repeatList:%myAns"
+    //% weight=85 tracking.min=1 tracking.max=255
+    export function setTracking(tracking: number, myAns: repeatList): void {
         CMD = 0x03
         para1 = 0x00
         para2 = tracking
@@ -85,11 +91,18 @@ namespace mp3player {
         if (myAns == 1)
             execute(0x19)
     }
+    
 
-
-    //% blockId="folderPlay" block="play the mp3 in the folder:%folderNum|filename:%fileNum|repeat:%myAns"
-    //% weight=80 blockGap=20 folderNum.min=1 folderNum.max=99 fileNum.min=1 fileNum.max=255
-    export function folderPlay(folderNum: number, fileNum: number, myAns: repeat): void {
+     /**
+     * TODO: Specify songs in the play folder
+     * @param folderNum Specify a floder , eg: 0
+     * @param fileNum Specify a song , eg: 0
+     * @param myAns repeat , eg: repeatList.Yes
+     */
+    //% blockId="folderPlay" 
+    //% block="play the mp3 in the folder:%folderNum|filename:%fileNum|repeatList:%myAns"
+    //% weight=80 folderNum.min=1 folderNum.max=99 fileNum.min=1 fileNum.max=255
+    export function folderPlay(folderNum: number, fileNum: number, myAns: repeatList): void {
         CMD = 0x0F
         para1 = folderNum
         para2 = fileNum
@@ -100,10 +113,12 @@ namespace mp3player {
         sendData()
         if (myAns == 1)
             execute(0x19)
-    }
-
+    } 
+     /**
+     * TODO: Cycle through all songs on the memory card
+     */
     //% blockId="setLoop" block="loop play all the MP3s in the SD card"
-    //% weight=75 blockGap=20 
+    //% weight=75 
     export function setLoop(): void {
         CMD = 0x11
         para1 = 0
@@ -114,9 +129,13 @@ namespace mp3player {
         checkSum()
         sendData()
     }
-
+    
+    /**
+     * TODO: Loop songs in folders
+     * @param folderNum Specify a floder , eg: 0
+     */
     //% blockId="setLoopFolder" block="loop play all the MP3s in the folder:%folderNum"
-    //% weight=73 blockGap=20 folderNum.min=1 folderNum.max=99
+    //% weight=73 folderNum.min=1 folderNum.max=99
     export function setLoopFolder(folderNum: number): void {
         CMD = 0x17
         para1 = 0
@@ -127,10 +146,13 @@ namespace mp3player {
         checkSum()
         sendData()
     }
-
-
+    
+    /**
+     * TODO: Set volume
+     * @param Sound Volume, eg: 48
+     */
     //% blockId="setVolume" block="set volume(0~48):%volume"
-    //% weight=70 blockGap=20 volume.min=0 volume.max=48
+    //% weight=70 volume.min=0 volume.max=48
     export function setVolume(volume: number): void {
         CMD = 0x06
         para1 = 0
@@ -150,5 +172,15 @@ namespace mp3player {
         serial.writeBuffer(myBuff)
         basic.pause(100)
     }
-
+    function checkSum(): void {
+        let total = 0;
+        for (let i = 1; i < 7; i++) {
+            total += dataArr[i]
+        }
+        total = 65536 - total
+        lowByte = total & 0xFF;
+        highByte = total >> 8;
+        dataArr[7] = highByte
+        dataArr[8] = lowByte
+    }
 } 

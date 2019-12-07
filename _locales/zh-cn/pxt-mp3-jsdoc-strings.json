@@ -1,1 +1,18 @@
-{}
+{
+  "mp3Player": "Functions to MP3 by ELECFREAKS Co.,Ltd.",
+  "mp3Player.MP3SetSerial": "TODO: Initializing the MP3 connection port as a serial port",
+  "mp3Player.MP3SetSerial|param|pinRX": "Serial port TX pin of micro:bit , eg: SerialPin.P1",
+  "mp3Player.execute": "TODO: Perform playback or other",
+  "mp3Player.execute|param|myType": "Left wheel speed , eg: playType.Play",
+  "mp3Player.folderPlay": "TODO: Specify songs in the play folder",
+  "mp3Player.folderPlay|param|fileNum": "Specify a song , eg: 0",
+  "mp3Player.folderPlay|param|folderNum": "Specify a floder , eg: 0",
+  "mp3Player.folderPlay|param|myAns": "repeat , eg: repeatList.Yes",
+  "mp3Player.setLoop": "TODO: Cycle through all songs on the memory card",
+  "mp3Player.setLoopFolder": "TODO: Loop songs in folders",
+  "mp3Player.setLoopFolder|param|folderNum": "Specify a floder , eg: 0",
+  "mp3Player.setTracking": "TODO: Specify a song to play",
+  "mp3Player.setTracking|param|myAns": "repeat , eg: repeatList.Yes",
+  "mp3Player.setTracking|param|tracking": "Specify a song , eg: 0",
+  "mp3Player.setVolume": "TODO: Set volume"
+}
