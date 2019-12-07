@@ -1,21 +1,35 @@
-# pxt-mp3
 
+#Mp3Player Package
 
+![](/image.png/)
 
-## TODO
+This library is designed to Mp3Player, You can get module here.
 
-- [ ] Add a reference for your blocks here
-- [ ] Add "icon.png" image (300x200) in the root folder
-- [ ] Add "- beta" to the GitHub project description if you are still iterating it.
-- [ ] Turn on your automated build on https://travis-ci.org
-- [ ] Use "pxt bump" to create a tagged release on GitHub
-- [ ] On GitHub, create a new file named LICENSE. Select the MIT License template.
-- [ ] Get your package reviewed and approved https://makecode.microbit.org/extensions/approval
+https://www.elecfreaks.com/store/cute-bot.html
 
-Read more at https://makecode.microbit.org/extensions
+## Code Example
 
+```JavaScript
+input.onButtonPressed(Button.A, function () {
+    mp3Player.execute(
+    mp3Player.playType.Play
+    )
+})
+input.onButtonPressed(Button.B, function () {
+    mp3Player.execute(
+    mp3Player.playType.Pause
+    )
+})
+mp3Player.MP3SetSerial(SerialPin.P1)
+mp3Player.setLoop()
+basic.forever(function () {
+	
+})
+
+```
 ## Supported targets
+for PXT/microbit
 
-* for PXT/microbit
-(The metadata above is needed for package search.)
+## License
+MIT
 

@@ -1,7 +1,7 @@
 {
-    "name": "pxt-mp3",
-    "version": "0.0.0",
-    "description": "",
+    "name": "pxt-Mp3Player",
+    "version": "0.1.0",
+    "description": "MP3 for playing music stored in SD card",
     "dependencies": {
         "core": "*",
         "radio": "*"
@@ -15,6 +15,6 @@
     "testFiles": [
         "test.ts"
     ],
-    "public": false,
+    "public": true,
     "preferredEditor": "tsprj"
 }
