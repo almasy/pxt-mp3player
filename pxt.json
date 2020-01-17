@@ -9,8 +9,8 @@
     "files": [
         "README.md",
         "main.ts",
-        "_locales/zh-cn/pxt-mp3-jsdoc-strings.json",
-        "_locales/zh-cn/pxt-mp3-strings.json"
+        "_locales/zh-cn/pxt-Mp3Player-strings.json",
+        "_locales/zh-cn/pxt-Mp3Player-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
