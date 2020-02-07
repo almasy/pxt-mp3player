@@ -92,13 +92,29 @@ namespace mp3Player {
             execute(0x19)
     }
     
-
-     /**
-     * TODO: Specify songs in the play folder
+    /**
+     * TODO: Loop songs in folders
      * @param folderNum Specify a floder , eg: 0
-     * @param fileNum Specify a song , eg: 0
-     * @param myAns repeat , eg: repeatList.Yes
      */
+    //% blockId="setLoopFolder" block="loop play all the MP3s in the folder:%folderNum"
+    //% weight=83 folderNum.min=1 folderNum.max=99
+    export function setLoopFolder(folderNum: number): void {
+        CMD = 0x17
+        para1 = 0
+        para2 = folderNum
+        dataArr[3] = CMD
+        dataArr[5] = para1
+        dataArr[6] = para2
+        checkSum()
+        sendData()
+    }
+
+    /**
+    * TODO: Specify songs in the play folder
+    * @param folderNum Specify a floder , eg: 0
+    * @param fileNum Specify a song , eg: 0
+    * @param myAns repeat , eg: repeatList.Yes
+    */
     //% blockId="folderPlay" 
     //% block="play the mp3 in the folder:%folderNum|filename:%fileNum|repeatList:%myAns"
     //% weight=80 folderNum.min=1 folderNum.max=99 fileNum.min=1 fileNum.max=255
@@ -113,31 +129,30 @@ namespace mp3Player {
         sendData()
         if (myAns == 1)
             execute(0x19)
-    } 
-    
+    }
+
     /**
-     * TODO: Loop songs in folders
-     * @param folderNum Specify a floder , eg: 0
+     * TODO: Set Random play
      */
-    //% blockId="setLoopFolder" block="loop play all the MP3s in the folder:%folderNum"
-    //% weight=73 folderNum.min=1 folderNum.max=99
-    export function setLoopFolder(folderNum: number): void {
-        CMD = 0x17
+    //% blockId="setRandomPlay" block="Play all tracks at random"
+    //% weight=75 
+    export function setRandomPlay(): void {
+        CMD = 0x18
         para1 = 0
-        para2 = folderNum
+        para2 = 0
         dataArr[3] = CMD
         dataArr[5] = para1
         dataArr[6] = para2
         checkSum()
         sendData()
     }
-    
+
     /**
      * TODO: Set volume
      * @param Sound Volume, eg: 48
      */
-    //% blockId="setVolume" block="set volume(0~48):%volume"
-    //% weight=70 volume.min=0 volume.max=48
+    //% blockId="setVolume" block="set volume(0~30):%volume"
+    //% weight=70 volume.min=0 volume.max=30
     export function setVolume(volume: number): void {
         CMD = 0x06
         para1 = 0

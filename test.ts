@@ -10,7 +10,6 @@ input.onButtonPressed(Button.B, function () {
     )
 })
 mp3Player.MP3SetSerial(SerialPin.P1)
-mp3Player.setLoop()
 basic.forever(function () {
 	
 })

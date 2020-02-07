@@ -9,9 +9,10 @@
   "mp3Player.playType.Stop|block": "停止",
   "mp3Player.repeatList.No|block": "否",
   "mp3Player.repeatList.Yes|block": "是",
-  "mp3Player.setLoopFolder|block": "循环播放歌曲 文件夹:%folderNum",
+  "mp3Player.setLoopFolder|block": "循环播放文件夹:%folderNum 中所有文件",
+  "mp3Player.setRandomPlay|block": "随机播放所有文件",
   "mp3Player.setTracking|block": "指定播放歌曲 文件名:%tracking|重复播放:%myAns",
-  "mp3Player.setVolume|block": "设置音量大小(0~48):%volume",
+  "mp3Player.setVolume|block": "设置音量大小(0~30):%volume",
   "mp3Player|block": "MP3",
   "{id:category}Mp3Player": "MP3Player"
 }

@@ -1,6 +1,6 @@
 {
     "name": "pxt-Mp3Player",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "MP3 for playing music stored in SD card",
     "dependencies": {
         "core": "*",
@@ -9,8 +9,8 @@
     "files": [
         "README.md",
         "main.ts",
-        "_locales/zh-cn/pxt-Mp3Player-strings.json",
-        "_locales/zh-cn/pxt-Mp3Player-jsdoc-strings.json"
+        "_locales/zh/pxt-Mp3Player-strings.json",
+        "_locales/zh/pxt-Mp3Player-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"

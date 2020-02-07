@@ -10,6 +10,7 @@
   "mp3Player.folderPlay|param|myAns": "repeat , eg: repeatList.Yes",
   "mp3Player.setLoopFolder": "TODO: Loop songs in folders",
   "mp3Player.setLoopFolder|param|folderNum": "Specify a floder , eg: 0",
+  "mp3Player.setRandomPlay": "TODO: Set Random play",
   "mp3Player.setTracking": "TODO: Specify a song to play",
   "mp3Player.setTracking|param|myAns": "repeat , eg: repeatList.Yes",
   "mp3Player.setTracking|param|tracking": "Specify a song , eg: 0",
