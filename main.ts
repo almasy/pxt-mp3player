@@ -114,21 +114,6 @@ namespace mp3Player {
         if (myAns == 1)
             execute(0x19)
     } 
-     /**
-     * TODO: Cycle through all songs on the memory card
-     */
-    //% blockId="setLoop" block="loop play all the MP3s in the SD card"
-    //% weight=75 
-    export function setLoop(): void {
-        CMD = 0x11
-        para1 = 0
-        para2 = 0x01
-        dataArr[3] = CMD
-        dataArr[5] = para1
-        dataArr[6] = para2
-        checkSum()
-        sendData()
-    }
     
     /**
      * TODO: Loop songs in folders

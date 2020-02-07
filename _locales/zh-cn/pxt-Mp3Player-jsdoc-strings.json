@@ -8,7 +8,6 @@
   "mp3Player.folderPlay|param|fileNum": "Specify a song , eg: 0",
   "mp3Player.folderPlay|param|folderNum": "Specify a floder , eg: 0",
   "mp3Player.folderPlay|param|myAns": "repeat , eg: repeatList.Yes",
-  "mp3Player.setLoop": "TODO: Cycle through all songs on the memory card",
   "mp3Player.setLoopFolder": "TODO: Loop songs in folders",
   "mp3Player.setLoopFolder|param|folderNum": "Specify a floder , eg: 0",
   "mp3Player.setTracking": "TODO: Specify a song to play",

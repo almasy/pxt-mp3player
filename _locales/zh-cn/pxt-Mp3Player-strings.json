@@ -10,7 +10,6 @@
   "mp3Player.repeatList.No|block": "否",
   "mp3Player.repeatList.Yes|block": "是",
   "mp3Player.setLoopFolder|block": "循环播放歌曲 文件夹:%folderNum",
-  "mp3Player.setLoop|block": "循环播放SD卡中歌曲",
   "mp3Player.setTracking|block": "指定播放歌曲 文件名:%tracking|重复播放:%myAns",
   "mp3Player.setVolume|block": "设置音量大小(0~48):%volume",
   "mp3Player|block": "MP3",

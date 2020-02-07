@@ -10,7 +10,6 @@
   "mp3Player.repeatList.No|block": "no",
   "mp3Player.repeatList.Yes|block": "yes",
   "mp3Player.setLoopFolder|block": "loop play all the MP3s in the folder:%folderNum",
-  "mp3Player.setLoop|block": "loop play all the MP3s in the SD card",
   "mp3Player.setTracking|block": "play the mp3 on the track:%tracking|repeatList:%myAns",
   "mp3Player.setVolume|block": "set volume(0~48):%volume",
   "mp3Player|block": "MP3",
