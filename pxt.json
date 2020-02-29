@@ -8,7 +8,8 @@
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+		"_locales/zh/pxt-Mp3Player-strings.json"
     ],
     "testFiles": [
         "test.ts"
