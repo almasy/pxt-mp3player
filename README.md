@@ -5,7 +5,7 @@
 
 This library is designed to Mp3Player, You can get module here.
 
-https://www.elecfreaks.com/store/cute-bot.html
+https://shop.elecfreaks.com/products/elecfreaks-octopus-mp3-player-module?_pos=2&_sid=68f42762c&_ss=r
 
 ## Code Example
 
